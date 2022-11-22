@@ -10,4 +10,3 @@ for(int i = 1; i <= A; i++)
     }
 Console.WriteLine($"сумма чисел= "+ sum);
 }
-
