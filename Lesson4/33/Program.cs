@@ -1,6 +1,5 @@
-﻿// Задать массив из 8 целых элементов и вывести их на экран
-// Для удобства выставил диапозон с 0 до 50 
-int[] RandomIntArray(int size=8,int min=0,int max=50)
+﻿// Задать массив из 8 элементов, заполненных нулями и единицами вывести их на экран
+int[] RandomIntArray(int size=8,int min=0,int max=1)
 {
     int[] a=new int[size];
     Random random=new Random();
