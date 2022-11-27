@@ -1,5 +1,5 @@
 ﻿// Написать программу замены элементов массива на противоположные
-int[] RandomIntArray(int size=10,int min=0,int max=50)
+int[] RandomIntArray(int size=10,int min=0,int max=100)
 {
     int[] a=new int[size];
     Random random=new Random();
@@ -7,14 +7,12 @@ int[] RandomIntArray(int size=10,int min=0,int max=50)
         a[i]=random.Next(min,max+1);
     return a;
 }
-/*
-int ElementReplacement(int[] a)
-{
-    for(int i; i<10; i++)
-        a=a[i]*-1;
-    return a;
-}
-*/
+void Change(int[] a)
+    {
+      for (int i = 0; i < a.Length; ++i)
+         a[i] = -a[i];
+    }
+ 
 void Print(int[] a)
 {
     for(int i=0;i<a.Length;i++)
@@ -22,8 +20,10 @@ void Print(int[] a)
 }
 
 int[] a=RandomIntArray();
-Print(a);
-System.Console.WriteLine();
-
-
+Console.Write("Исходный массив:");
+      Print(a);
+      Change(a);
+      System.Console.WriteLine();
+Console.Write("Измененный массив:");
+      Print(a);
 
