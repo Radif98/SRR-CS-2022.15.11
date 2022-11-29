@@ -1,36 +1,41 @@
 ﻿// Написать программу масштабирования фигуры
-// Рассмотрим вариант для фигуры из 4 координат 
 
-int[] Array(int p)
+class Program
 {
-int[] t=new int[p];
-for(int i=0;i<p;i++)
-    t[i]=Convert.ToInt32(Console.ReadLine());
-    return t; 
+    struct Point
+    {
+        public double x,y;
+    }
+
+    static double Distance(double x1,double y1, double x2,double y2)
+    {
+        return Math.Sqrt(Math.Pow(x1-x2,2)+Math.Pow(y1-y2,2));
+    }
+
+    static double Distance(Point A, Point B)
+    {
+        return Math.Sqrt(Math.Pow(A.x-B.x,2)+Math.Pow(A.y-B.y,2));
+    }
+
+    static void Main()
+    {
+        Point a,b;
+        a.x=0;
+        a.y=0;
+        b.x=2;
+        b.y=3;
+        System.Console.WriteLine(Distance(a,b));
+
+        Point[] figure=new Point[3];
+        double k=2;
+        for(int i=0;i<figure.Length;i++)
+        {
+         figure[i].x*=k;
+         figure[i].y=figure[i].y*k;
+        }
+
+    }
+
+    
+
 }
-
-void Print(int[] t)
-{
-    for(int i=0;i<t.Length;i++)
-        System.Console.WriteLine($"x\ny{t[i],10}");
-
-           
-}
-
-/*void PrintXY(int[] t)
-{
-    for(int i=0;i<t.Length;i++)
-        System.Console.WriteLine(" x \n y");
-
-}
-*/
-System.Console.Write("Введите количество координат N:");
-int n=Convert.ToInt32(Console.ReadLine());
-int p=n*2;
-/*System.Console.Write("Введите масштаб фигуры:");
-int k=Convert.ToInt32(Console.ReadLine());
-double x=x*k;
-double y=y*k;*/
-int[] a=Array(n);
-//PrintXY(a);
-Print(a);
