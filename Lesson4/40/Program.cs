@@ -10,25 +10,31 @@ int[] RandomIntArray(int size=10,int min=1,int max=10)
         a[i]=random.Next(min,max+1);
     return a;
 }
-/*
+
 void NewIntArray(int[] a)
 {
     int size=10;
-    for (int i = 0; i < a.Length; ++i)
-        a[i] = a[i]*a[size-i];
+    for (int i = 0; i < a.Length/2; ++i)
+        a[i] = a[i]*a[size-1-i];
 }
-*/
+
  
 void Print(int[] a)
 {
     for(int i=0;i<a.Length;i++)
         System.Console.Write($"{a[i],5}");
 }
+
+void NewPrint(int[] a)
+{
+    for(int i=0;i<a.Length/2;i++)
+        System.Console.Write($"{a[i],5}");
+}
  
 int[] a=RandomIntArray();
 Console.Write("Исходный массив:");
       Print(a);
-      //NewIntArray(a);
+      NewIntArray(a);
       System.Console.WriteLine();
 Console.Write("Новый массив:");
-      Print(a);
+      NewPrint(a);
