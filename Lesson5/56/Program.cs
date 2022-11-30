@@ -1,40 +1,35 @@
 ﻿// Написать программу копирования массива
-int[] Array1(int n)
+int[] RandomIntArray(int size=10,int min=0,int max=50)
 {
-int[] a=new int[n];
-for(int i=0;i<n;i++)
-    a[i]=Convert.ToInt32(Console.ReadLine());
+    int[] a=new int[size];
+    Random random=new Random();
+    for(int i=0;i<size;i++)
+        a[i]=random.Next(min,max+1);
     return a;
 }
 
-int[] Array2(int n)
+int[] Array2(int[] a)
 {
-int[] b=new int[n];
-for(int i=0;i<n;i++)
-    b[i]=Convert.ToInt32(Console.ReadLine());
+int[] b=new int[a.Length];
+for(int i=0;i<a.Length;i++)
+    b[i]=a[i];
     return b;
 }
 
-int[] Copy(int n)
+void Print1(int[] a)
 {
-int[] c=new int[n];    
-for(int i=0;i<n;i++) 
-  c[i]=Array.Copy( Array1, Array1.GetLowerBound(i), Array2, Array2.GetLowerBound(i), n );
-  return c;
-}
-
-void Print(int[] a, int[] b)
-{
-    for(int i=0;i<n;i++)
+    for(int i=0;i<a.Length;i++)
         System.Console.Write($"{a[i],5}");
-        System.Console.Write($"{b[i],5}");
-        System.Console.Write($"{c[i],5}");
 }    
-   
 
-System.Console.Write("Введите размер массива N:");
-int n=Convert.ToInt32(Console.ReadLine());
-int[] a=Array1(n);
-int[] b=Array1(n);
-int[] c=Copy(n);
-Print(a,b,c);
+void Print2(int[] b)
+{
+    for(int i=0;i<b.Length;i++)
+        System.Console.Write($"{b[i],5}");
+} 
+
+int[] a=RandomIntArray();
+Print1(a);
+int[] b=Array2(a);
+System.Console.WriteLine();
+Print2(b);
