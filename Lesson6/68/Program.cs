@@ -35,7 +35,7 @@ void ChangeColumns(int[,] a)
 }
 
 
-int[,] a=Random2DArray(5,5);
+int[,] a=Random2DArray(5,7);
 Print2DArray(a);
 ChangeColumns(a);
 System.Console.WriteLine();
