@@ -14,51 +14,37 @@ cd
 То есть, 2 бита, потом еще 3 бита, потом еще 3 бита и еще 1 бит. Переводим биты в десятичное представление.
 Какие ошибки могут возникнуть при обработке наборов данных?
 */
- int[] ArrayData(int n)
+int[] data = { 0, 1, 1, 1, 1, 0, 0, 0, 1 };
+int[] info = { 2, 3, 3, 1 };
+int[] result = new int[info.Length];
+int k = 0; // счетчик количества цифр в data
+for (int i = 0; i < info.Length; i++) //разбываем data на числа в двоичном коде на основе количества бит из info
 {
-    int[] a=new int[n];
-    for(int i=0;i<n;i++) 
-        a[i]=int.Parse(Console.ReadLine());
-    return a;
+    for (int j = 0; j < info[i]; j++)
+    {
+        Console.Write(data[k + j] + " ");
+    }
+    k += info[i];
+    Console.Write("; ");
 }
 
-//int[] BinToDec(int[] a)
-   
-int[] ArrayInfo(int[] c)
+k = 0;
+for (int i = 0; i < info.Length; i++) // преобразуем получившиеся числа из 2-ой в 10-ую
 {
-    int[] b=new int[c.Length];
-    for(int i=0;i<c.Length;i++)
-        b[i]=Convert.ToInt32(Math.Log2(c[i]));
-    return b;
+    for (int j = 0; j < info[i]; j++)
+    {
+        result[i] += data[k + j] * (int)Math.Pow(2, info[i] - 1 - j);
+    }
+    k += info[i];
 }
-
-void PrintArray(int n, int[] a, int[] b, int[] c)
+Console.WriteLine();
+for (int i = 0; i < result.Length; i++)
 {
-    for(int i=0;i<n;i++)
-        {
-        System.Console.Write($"{a[i],4}");
-        }
-    System.Console.WriteLine();
-    for(int i=0;i<n;i++)
-        {
-            System.Console.Write($"{b[i],4}");
-        }
-    System.Console.WriteLine();    
-    for(int i=0;i<n;i++)
-        {
-            System.Console.Write($"{c[i],4}");
-        }
-    
+    Console.Write(result[i] + " ");
 }
 
 
 
-int n=5;
-Console.WriteLine("Вводите числа BIN");
-int[] a=ArrayData(n);
-int[] b=ArrayInfo(c);
-//int[] c=BinToDec(a);
-PrintArray(n, a, b, c);
 
 
 
