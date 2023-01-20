@@ -21,17 +21,18 @@ void Print2DArray(int[,] a)
 
 void ChangeColumns(int[,] a)
 {
-    int b;
-    for(int i=0;i<a.GetLength(1);i++) 
+    int k=a.GetLength(0)-1;
+    for(int i=0;i<a.GetLength(0);i++) 
         {
-            for(int j=0;j<a.GetLength(0);j++)
+            for(int j=0;j<a.GetLength(1);j++)
                 if(i==0)
                 {
-                    b=a[i,j];
-                    a[i,j]=a[a.GetLength(1)-1,j];
-                    a[a.GetLength(1)-1,j]=b;
+                    a[i,j]=a[k,j]+a[i,j];
+                    a[k,j]=a[i,j]-a[k,j];
+                    a[i,j]=a[i,j]-a[k,j];
                 }
-        }           
+        }       
+
 }
 
 

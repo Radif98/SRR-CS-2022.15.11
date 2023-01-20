@@ -25,17 +25,26 @@ void SumLine(int[,] a)
 {
     int s=0;
     int k=0;
-    for(int i=0;i<a.GetLength(1);i++)
+    int min=0;
+    for(int i=0;i<a.GetLength(0);i++)
     {    
-        for(int j=0;j<a.GetLength(0);j++)
+        for(int j=0;j<a.GetLength(1);j++)
             {
                 s=s+a[i,j];
             }
-        k++;     
+        k++;
         System.Console.WriteLine($"{k}- {s}");
+        if(i==0) min=s;
+        if(s<min)
+            {
+                min=s;
+            }
         s=0;
-    }     
+    }
+    System.Console.WriteLine();
+    System.Console.WriteLine($"{min}");
 }
-int[,] a=Random2DArray(3,3);
+int[,] a=Random2DArray(7,5);
 Print2DArray(a);
+System.Console.WriteLine();
 SumLine(a);
